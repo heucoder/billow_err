@@ -26,9 +26,9 @@ func main() {
 	}
 	log.Println("begin path:", path)
 	log.Println("--------newBaseError统计开始--------------")
-	walk(path, generateFileError)
-	log.Println("--------newBaseError统计完成,开始生成新的code--------------")
 	walk(path, countFileNewBaseError)
+	log.Println("--------newBaseError统计完成,开始生成新的code--------------")
+	walk(path, generateFileError)
 	log.Println("----------------code生成完成，开始输出json---------------------------")
 	toJson(path)
 	log.Println("--------------------json输出完成，结束----------------------------")

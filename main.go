@@ -14,6 +14,6 @@ func main() {
 	if err != nil {
 		fmt.Printf("err:%+v\n", err)
 	}
-	billow_err.NewBaseError(12, "test 1")
-	billow_err.NewBaseError(13, "test 2")
+	billow_err.NewBaseError(15, "test 1")
+	billow_err.NewBaseError(16, "test 2")
 }

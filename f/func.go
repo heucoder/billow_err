@@ -35,7 +35,7 @@ func FuncCommon(a int64) error {
 		return billow_err.NewBaseError(14, "a>10000")
 	}
 	if a < 10 {
-		return billow_err.NewBaseError(15, "a<10")
+		return billow_err.NewBaseError(17, "a<10")
 	}
 	fmt.Printf("FuncCommon req:%v\n", a)
 	return nil
