@@ -5,29 +5,18 @@ import (
 	"fmt"
 	"go/ast"
 	"go/format"
-	"go/parser"
 	"go/token"
 	"log"
 	"os"
 	"strconv"
 	"sync"
+	"sync/atomic"
 )
 
 var mu sync.Mutex
+var errorNumGenerate atomic.Int32
 
-func parseFile(fileName string) (*ast.File, *token.FileSet, error) {
-	content, err := os.ReadFile(fileName)
-	if err != nil {
-		panic(err.Error())
-	}
-	srcCode := string(content)
-
-	fset := token.NewFileSet()
-	file, err := parser.ParseFile(fset, "", srcCode, parser.ParseComments)
-	return file, fset, err
-}
-
-func generateError(fileName string) {
+func generateFileError(fileName string) {
 	file, fset, err := parseFile(fileName)
 	if err != nil {
 		panic(err.Error())
